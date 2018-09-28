@@ -189,10 +189,10 @@ class Home extends React.Component {
                                           row.video ? 
                                             <TableRow>
                                               <TableCell rowSpan={row.rowSpan + 1}>
-                                                <a target="_blank" href={`http://131.255.6.34:3000/api/containers/videos/download/${row.path.slice(15)}`}> {row.date} </a>
+                                                <a href="#" onClick={()=> window.open(`http://131.255.6.34:3000/api/containers/videos/download/${row.path.slice(15)}`,'myWindow', 'width=600, heigth=600')}> {row.date} </a>
                                               </TableCell>
                                               <TableCell >
-                                                { `${row.location.geo.lat} - ${row.location.geo.lng}` } GPS
+                                                <a href="#" onClick={()=> window.open(`https://www.google.com/maps/search/?api=1&query=${row.location.geo.lat}, ${row.location.geo.lng}`, 'myWindow', 'width=600, heigth=600')}>{ `${row.location.geo.lat} - ${row.location.geo.lng}` }</a>
                                               </TableCell>
                                               <TableCell rowSpan={row.rowSpan + 1}>
                                                 ONLINE
@@ -203,7 +203,7 @@ class Home extends React.Component {
                                             </TableRow> :
                                             <TableRow>
                                               <TableCell>
-                                                <a target="_blank" href={`${row.geo.lat}, ${row.geo.lng}`}>{ `${row.geo.lat} - ${row.geo.lng}` }</a>
+                                                <a href="#" onClick={()=> window.open(`https://www.google.com/maps/search/?api=1&query=${row.geo.lat}, ${row.geo.lng}`, 'myWindow', 'width=600, heigth=600')}>{ `${row.geo.lat} - ${row.geo.lng}` }</a>
                                               </TableCell> 
                                             </TableRow> 
                                         )
