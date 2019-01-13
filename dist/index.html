@@ -61,56 +61,6 @@
   <script src="bundle.js"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script>
-      var desde = {};
-      var hasta = {};
-
-      desde.dia = $('#desde-dia').val();
-      desde.hora = $('#desde-hora').val();
-
-      console.log(desde);
-
-      var query = function() {
-          console.log($, 'query');
-          desde.dia = $('#desde-dia').val();
-          desde.hora = $('#desde-hora').val();
-
-          hasta.dia = $('#desde-dia').val();
-          hasta.hora = $('#hasta-hora').val();
-
-          var dsd = new Date(desde.dia + ' ' + desde.hora);
-          var hst = new Date(hasta.dia + ' ' + hasta.hora);
-
-          dsd.setHours(dsd.getHours() - 3);
-          hst.setHours(hst.getHours() - 3);
-
-          console.log(dsd, hst);
-          $.ajax({
-              url: 'http://131.255.6.34:3000/api/dispositivos/betweenDates',
-              data: {
-                      dates: {
-                          from: dsd,
-                          to: hst
-                      }
-              },
-              type: 'POST',
-              success: function(response) {
-                  console.log(response);
-
-                  var videos = $('#videos');
-                  var ubicacion = $('#ubicacion');
-
-                  for (var i = 0; i < response.results.videos.length; i++ ) {
-                      videos.append('<li>' + response.results.videos[i].date + '</li>')
-                  }
-                  for (var i = 0; i < response.results.locations.length; i++ ) {
-                      ubicacion.append('<li>' + response.results.locations[i].date + '</li>')
-                  }
-              },
-              error: function(err) {
-                  console.log(err);   
-              }
-          })
-      };
 
   </script>
 </body>

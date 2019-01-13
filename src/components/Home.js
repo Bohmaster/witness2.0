@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Table, TableRow, TableBody, TableHead, TableCell, Paper } from '@material-ui/core';
 
+import InputMoment from 'input-moment';
+
 const renderTableRows = (data) => {
   console.log("renderTble")
   let rows = []
@@ -143,6 +145,7 @@ class Home extends React.Component {
                             </div>
                           </div>
                           <div className="w-row">
+                            <InputMoment />
                             <div className="w-col w-col-6">
                               <div className="text-block-6">Desde hora</div>
                               <input id="desde-hora" className="w-input"  name="field-5" data-name="Field 5" placeholder="Example Text" type="time" />
